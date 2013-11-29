@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Prototype lib</title>
+    <!-- Include Prototype -->
+    <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script>
+    <!-- <script src="TestPrototype.js"></script> -->
+    <script>
+        function testPrototype() {
+            $("h02").insert("Hello Prototype!");
+            $("h02").writeAttribute("style", "color:red").insert("Hello Prototype2!");
+        }
+        Event.observe(window, "load", testPrototype);
+    </script>
+</head>
+<body>
+    <header>
+        <h1 id="h02">h02: </h1>
+    </header>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test JSON Page</title>
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="h01">Test JSON</h1>
+    </header>
+
+    <fieldset>
+        <legend>Test add img from JSON Object</legend>
+        <div class="div100">Image to be placed here</div>
+        <script>
+            var jsonImgObject = { "FileName": "icon.gif", "Description": "IconImage" };
+            //function ImageData(image) {
+            //var img = document.CreateElement('img');
+            //this.img = document.CreateElement("img");
+            //img.src = image.FileName; img.alt = image.Description;
+            //this.img.Description = image.Description;
+            //return img.HTMLImage();
+            //return this.img;
+            //}
+            //var imageData = new ImageData(jsonImgObject);
+            $("div.div100").html("<p>HelloWorld</p>");
+        </script>
+    </fieldset>
+
+    <fieldset>
+        <legend>Test JSON Object Creation in JavaScript</legend>
+        Name: <span id="jname"></span><br />
+        Age: <span id="jage"></span><br />
+        Address: <span id="jaddress"></span><br />
+        <script>
+            var jsonObject = { "name": "Will Smith", "street": "Oslo West 555", "age": "33" };
+            document.getElementById("jname").innerHTML = jsonObject.name
+            document.getElementById("jage").innerHTML = jsonObject.age
+            document.getElementById("jaddress").innerHTML = jsonObject.street
+        </script>
+    </fieldset>
+
+    <fieldset>
+        <legend>Test JSON Array Creation in JavaScript</legend>
+        Name: <span id="jname2"></span><br />
+        Age: <span id="jage2"></span><br />
+        Address: <span id="jaddress2"></span><br />
+        <script>
+            var jsonArray = [
+              { "name": "Apple Smith", "street": "Oslo West 111", "age": "11" },
+              { "name": "Betty Smith", "street": "Oslo West 222", "age": "22" },
+              { "name": "Chris Smith", "street": "Oslo West 333", "age": "33"}];
+            document.getElementById("jname2").innerHTML = jsonArray[1].name
+            document.getElementById("jage2").innerHTML = jsonArray[1].age
+            document.getElementById("jaddress2").innerHTML = jsonArray[1].street
+        </script>
+    </fieldset>
+
+    <fieldset>
+        <legend>Test Converting JSON Text to a JavaScript Object</legend>
+        First Name: <span id="fname"></span><br />
+        Last Name: <span id="lname"></span><br />
+        <script>
+            var txt = '{"employees":[' +
+                           '{"firstName":"John","lastName":"Doe" },' +
+                           '{"firstName":"Anna","lastName":"Smith" },' +
+                           '{"firstName":"Peter","lastName":"Jones" }]}';
+            var obj = eval("(" + txt + ")");
+            document.getElementById("fname").innerHTML = obj.employees[1].firstName
+            document.getElementById("lname").innerHTML = obj.employees[1].lastName
+        </script>
+    </fieldset>
+
+</body>
+</html>

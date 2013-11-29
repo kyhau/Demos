@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button> 
+<button onclick="stopWorker()">Stop Worker</button>
+<br><br>
+
+<script>
+    if (!window.Worker) {
+        alert("Dedicated Web Worker not available");
+    }
+    if (!window.SharedWorker) {
+        alert("Shared Web Worker not available");
+    }
+    var w;
+
+    function startWorker() {
+        if (typeof (Worker) !== "undefined") {
+            if (typeof (w) == "undefined") {
+                w = new Worker('TestWebWorkerTask.js');
+            }
+            alert("here3");
+            w.postMessage("Hello from the main page");
+            w.onmessage = function (event) {
+                document.getElementById("result").innerHTML = event.data;
+            };
+        }
+        else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+        }
+    }
+
+    function stopWorker() {
+        w.terminate();
+    }
+</script>
+
+</body>
+</html>

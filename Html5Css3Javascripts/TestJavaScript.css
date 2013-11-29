@@ -1,0 +1,55 @@
+body {
+    font-family:"arial";
+    font-size:0.9em; /* default 16px */
+}
+
+
+
+div#testCss1 {
+width:100px;
+height:100px;
+background:red;
+animation:myfirst 5s;
+-webkit-animation:myfirst 5s; /* Safari and Chrome */
+}
+
+@keyframes myfirst
+{
+from {background:red;}
+to {background:yellow;}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+from {background:blue;}
+to {background:yellow;}
+}
+
+div#testCss2
+{
+width:100px;
+height:100px;
+background:red;
+position:relative;
+animation: myfirst2 5s linear 2s infinite alternate;
+/* Safari and Chrome: */
+-webkit-animation: myfirst2 5s linear 2s infinite alternate;
+}
+
+@keyframes myfirst2
+{
+0%   {background:red; left:0px; top:0px;}
+25%  {background:yellow; left:200px; top:0px;}
+50%  {background:blue; left:200px; top:200px;}
+75%  {background:green; left:0px; top:200px;}
+100% {background:red; left:0px; top:0px;}
+}
+
+@-webkit-keyframes myfirst2 /* Safari and Chrome */
+{
+0%   {background:red; left:0px; top:0px;}
+25%  {background:yellow; left:200px; top:0px;}
+50%  {background:blue; left:200px; top:200px;}
+75%  {background:green; left:0px; top:200px;}
+100% {background:red; left:0px; top:0px;}
+}

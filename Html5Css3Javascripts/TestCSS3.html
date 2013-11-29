@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Page: CSS3</title>
+    <link rel="stylesheet" href="TestCSS3.css" />
+    <script>
+        function checkbox1OnClick() {
+            var cbx = document.getElementById("checkbox1");
+            var txt = document.getElementById("text1");
+            txt.disabled = !cbx.checked;
+        }
+        window.onload = checkbox1OnClick;
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 id="h01">Test CSS3</h1>
+    </header>
+
+    <fieldset>
+        <legend>Test flex-box</legend>
+        <div id="flexbox-container">
+            <div id="flexbox1">Div flexbox1</div>
+            <div id="flexbox2">Div flexbox2</div>
+            <div id="flexbox3">Div flexbox3</div>
+         </div>
+         <p><b>Note:</b> Flexible boxes are not supported in IE 9, and earlier versions.</p>
+    </fieldset>
+
+    <fieldset>
+        <legend>Test CSS3 Animations</legend>
+        <div id="testCss1"></div>
+        <div id="testCss2"></div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Test box-shadow: x-offset y-offset blur color</legend>
+        <img id="img01" src="icon.gif"/>
+    </fieldset>
+
+    <fieldset>
+        <legend>Test overflow</legend>
+        <p>This p uses word-wrap:break-word (normal|break-word) & text-shadow: h-shadow v-shadow blur color :</p>
+        <p class="pof01">This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
+        <p>This p uses text-wrap:normal (normal|none|unrestricted|suppress)</p>
+        <p class="pof03">This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
+        
+        <p>This p uses "text-overflow:ellipsis":</p>
+        <p class="pof02" style="text-overflow:ellipsis;">This is some long text that will not fit in the box</p>
+        <p>This p uses "text-overflow:clip":</p>
+        <p class="pof02" style="text-overflow:clip;">This is some long text that will not fit in the box</p>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Test Selector</legend>
+        <div id="divs01">
+            <ul> ul1 - test ul:first-of-type { border:1px solid red; }
+              <li>li 1</li>
+            </ul>
+            <ul> ul2
+            </ul>
+        </div>
+        <div id="div2">
+            <table id="table01" border="1px">
+                <tr><td>Row1</td></tr>
+                <tr><td>Row2</td></tr>
+                <tr><td>Row3</td></tr>
+                <tr><td>Row4</td></tr>
+                <tr><td>Row5</td></tr>
+                <tr><td>Row6</td></tr>
+            </table>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Test form disable</legend>
+        <form id="form1">
+            Text: <input type="text" id="text1" name="Text1" placeholder="text1 placeholder"/>
+            Checkbox: <input type="checkbox" id="checkbox1" name="Checkbox1" onclick="checkbox1OnClick()" />
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <legend>Test exclusion and -ms-grid-row, -ms-grid-column</legend>
+        <div class="container">
+            <div class="exclusion">
+              Exclusion positioned at row 2, column 2.
+            </div>
+            <div class="dummy_text" width="200">
+                <p>12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</p>
+            </div>
+    </div>
+    </fieldset>
+
+    <fieldset>
+        <legend></legend>
+    </fieldset>
+</body>
+</html>

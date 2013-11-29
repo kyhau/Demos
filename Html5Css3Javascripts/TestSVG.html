@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test SVG Page</title>
+</head>
+<body>
+    <header>
+        <h1 id="h01">Test SVG</h1>
+    </header>
+
+    <h2>SVG Basic shapes</h2>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <script>
+            // http://www.w3.org/TR/SVG/script.html
+            function circle_click(evt) {
+                var circle = evt.target;
+                circle.setAttribute("r", circle.getAttribute("r") * 1.5);
+            }
+        </script>
+
+        // Resize circle
+        <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red"
+                onclick="circle_click(evt)" />
+        
+        // Resize circle (scale)
+        <circle cx="200" cy="50" r="40" stroke="black" stroke-width="2" fill="green"
+                transform="scale(1.5)"/>
+
+        // Resize circle (rotate)
+        <circle cx="500" cy="50" r="40" stroke="black" stroke-width="2" fill="blue"
+                transform="rotate(125 500 50)"/>
+
+        <rect y= "100" width="200" height="100" 
+              style="fill:rgb(0,0,255); stroke-width:1; stroke:rgb(0,0,0)" />
+        <rect x="250" y="100" width="150" height="150"
+              style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9" />
+        <rect x="450" y="100" width="150" height="150"
+              style="fill:blue;stroke:pink;stroke-width:5;opacity:0.5" />
+
+        // Rotate rectangle (once off)
+        <rect y="230" rx="50" ry="50" width="150" height="150"
+              style="fill:red;stroke:black;stroke-width:5;opacity:0.5"
+              transform="rotate(-40 100 200)" />
+
+        <rect y="350" width="100" height="100">
+            <animateTransform attributeName="transform"
+                              attributeType="XML"
+                              type="scale"
+                              by="1" dur="5s" fill="freeze"/>
+        </rect>
+
+        // Rotate rectangle (repeatCount="indefinite")
+        <rect x="150" y="20" width="60" height="60" fill="orange">
+            <animateTransform attributeType="xml"
+                              attributeName="transform"
+                              type="rotate"
+                              from="0 180 50" 
+                              to="360 180 50"
+                              dur="4s"
+                              repeatCount="indefinite"/>
+        </rect>  
+    </svg>
+
+</body>
+</html>

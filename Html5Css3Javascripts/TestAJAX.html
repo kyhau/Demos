@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    function showHint(str) {
+        var xmlhttp;
+        if (str.length == 0) {
+            document.getElementById("txtHint").innerHTML = "123";
+            return;
+        }
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        // For async=true in open(), need onreadystatechange.
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "TestAJAX_test.asp?q=" + str, true/*async*/);
+        xmlhttp.send();
+    }
+
+    // Get Text : xmlhttp.responseText
+    function loadXMLDoc() {
+        var xmlhttp;
+        if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else { // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 /*request finished and response ready */ 
+                && xmlhttp.status == 200 /*200=OK, 404=PageNotFound*/) {
+                document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "TestAJAX_test.txt", true/*async*/);
+        xmlhttp.send();
+    }
+
+    // Get XML
+    function loadXMLDoc2() {
+        var xmlhttp;
+        var txt, x, i;
+        if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else { // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                xmlDoc = xmlhttp.responseXML;
+                txt = "";
+                x = xmlDoc.getElementsByTagName("ARTIST");
+                for (i = 0; i < x.length; i++) {
+                    txt = txt + x[i].childNodes[0].nodeValue + "<br>";
+                }
+                document.getElementById("myDiv").innerHTML = txt;
+            }
+        }
+        xmlhttp.open("GET", "cd_catalog.xml", true);
+        xmlhttp.send();
+    }
+
+    var xmlhttp;
+    function loadXMLDoc3(url, cfunc) {
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = cfunc;
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
+    function myFunction() {
+        loadXMLDoc3("ajax_info.txt", function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+            }
+        });
+    }
+</script>
+</head>
+<body>
+
+<h3>Start typing a name in the input field below:</h3>
+<form action=""> 
+First name: <input type="text" id="txt1" onkeyup="showHint(this.value)" />
+</form>
+<p>Suggestions: <span id="txtHint"></span></p> 
+
+<div id="myDiv">
+  <h2>Let AJAX change this text</h2>
+</div>
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
+<br />
+<button type="button" onclick="loadXMLDoc2()">Get my CD collection</button>
+<br />
+<button type="button" onclick="myFunction()">Callback example</button>
+
+</body>
+</html>
