@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript isNaN()</title>
+</head>
+<body>
+    <header>
+        <h1>JavaScript - isNaN() Function (Not-a-Number)</h1>
+    </header>
+
+    <fieldset>
+        <legend>Examples</legend>
+        <script>
+            document.write("isNaN() = " + isNaN() + " ***<br>");        // true
+            document.write('isNaN("") = ' + isNaN("") + " ***<br>");     // false
+            document.write('isNaN(" ") = ' + isNaN(" ") + " ***<br>");   // false
+            document.write("isNaN(NaN) = " + isNaN(NaN) + " ***<br>");  // true
+            document.write("isNaN(undefined) = " + isNaN(undefined) + " ***<br>"); // true
+            document.write("isNaN({}) = " + isNaN({}) + " ***<br>");     // true
+            document.write("isNaN(true) = " + isNaN(true) + " ***<br>"); // false
+            document.write("isNaN(null) = " + isNaN(null) + " ***<br>"); // false
+            document.write("isNaN(123) = " + isNaN(123) + "<br>");       // false
+            document.write('isNaN("123") = ' + isNaN("123") + " ***<br>");   // false
+            document.write("isNaN(-1.23) = " + isNaN(-1.23) + "<br>");   // false
+            document.write("isNaN(5 - 2) = " + isNaN(5 - 2) + "<br>");   // false
+            document.write("isNaN(0 / 2) = " + isNaN(0 / 2) + "<br>");   // false
+            document.write("isNaN(2 / 0) = " + isNaN(2 / 0) + " *** <br>");   // false
+            document.write("isNaN(0 / 0) = " + isNaN(0 / 0) + " *** <br>");   // true
+            document.write("isNaN(0) = " + isNaN(0) + "<br>");           // false
+            document.write("isNaN('Hello') = " + isNaN("Hello") + "<br>");   // true
+            document.write('isNaN("2005/12/12") = ' + isNaN("2005/12/12") + "<br>"); // true
+            document.write("isNaN(',') = " + isNaN(',') + "<br>");            // false
+        </script>
+    </fieldset>
+</body>
+</html>

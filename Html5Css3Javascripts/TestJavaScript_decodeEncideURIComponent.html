@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript - decodeURIComponent / decodeURI</title>
+</head>
+<body>
+    <header>
+        <h1>JavaScript - decodeURIComponent / decodeURI</h1>
+    </header>
+
+    <fieldset>
+    <legend>Examples</legend>
+        <script>
+            document.write("<b>decodeURI</b> <br>");
+            var uri = "my test.asp?name=stale&car=saab";
+            var uri_encode = encodeURI(uri);
+            document.write("Encoded: " + uri_encode + "<br>");
+            document.write("Decoded: " + decodeURI(uri_encode) + "<br>");
+            uri = "test@gmail.com";
+            uri_encode = encodeURI(uri);
+            document.write("Encoded: " + uri_encode + "<br>");
+            document.write("Decoded: " + decodeURI(uri_encode) + "<br>");
+
+            document.write("<b>decodeURIComponent</b> <br>");
+            var uri2 = "http://w3schools.com/my test.asp?name=stale&car=saab";
+            var uri_encode2 = encodeURIComponent(uri2);
+            document.write("Encoded: " + uri_encode2 + "<br>");
+            document.write("Decoded: " + decodeURIComponent(uri_encode2) + "<br>");
+            uri2 = "test@gmail.com";
+            uri_encode2 = encodeURIComponent(uri2);
+            document.write("Encoded: " + uri_encode2 + "<br>");
+            document.write("Decoded: " + decodeURIComponent(uri_encode2) + "<br>");
+        </script>
+    </fieldset>
+</body>
+</html>

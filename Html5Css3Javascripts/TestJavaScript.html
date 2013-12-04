@@ -64,53 +64,7 @@
     </fieldset>
 
     <fieldset>
-    <legend>Test decodeURIComponent / decodeURI</legend>
-        <script>
-            document.write("<b>decodeURI</b> <br>");
-            var uri = "my test.asp?name=stale&car=saab";
-            var uri_encode = encodeURI(uri);
-            document.write("Encoded: " + uri_encode + "<br>");
-            document.write("Decoded: " + decodeURI(uri_encode) + "<br>");
-            uri = "virtualda@gmail.com";
-            uri_encode = encodeURI(uri);
-            document.write("Encoded: " + uri_encode + "<br>");
-            document.write("Decoded: " + decodeURI(uri_encode) + "<br>");
-
-            document.write("<b>decodeURIComponent</b> <br>");
-            var uri2 = "http://w3schools.com/my test.asp?name=stale&car=saab";
-            var uri_encode2 = encodeURIComponent(uri2);
-            document.write("Encoded: " + uri_encode2 + "<br>");
-            document.write("Decoded: " + decodeURIComponent(uri_encode2) + "<br>");
-            uri2 = "virtualda@gmail.com";
-            uri_encode2 = encodeURIComponent(uri2);
-            document.write("Encoded: " + uri_encode2 + "<br>");
-            document.write("Decoded: " + decodeURIComponent(uri_encode2) + "<br>");
-        </script>
-    </fieldset>
-
-    <fieldset>
-        <legend>Test JS isNaN() Function (Not-a-Number)</legend>
-        <script>
-            document.write("isNaN() = " + isNaN() + " ***<br>");        // true
-            document.write('isNaN("") = ' + isNaN("") + " ***<br>");     // false
-            document.write('isNaN(" ") = ' + isNaN(" ") + " ***<br>");   // false
-            document.write("isNaN(NaN) = " + isNaN(NaN) + " ***<br>");  // true
-            document.write("isNaN(undefined) = " + isNaN(undefined) + " ***<br>"); // true
-            document.write("isNaN({}) = " + isNaN({}) + " ***<br>");     // true
-            document.write("isNaN(true) = " + isNaN(true) + " ***<br>"); // false
-            document.write("isNaN(null) = " + isNaN(null) + " ***<br>"); // false
-            document.write("isNaN(123) = " + isNaN(123) + "<br>");       // false
-            document.write('isNaN("123") = ' + isNaN("123") + " ***<br>");   // false
-            document.write("isNaN(-1.23) = " + isNaN(-1.23) + "<br>");   // false
-            document.write("isNaN(5 - 2) = " + isNaN(5 - 2) + "<br>");   // false
-            document.write("isNaN(0 / 2) = " + isNaN(0 / 2) + "<br>");   // false
-            document.write("isNaN(2 / 0) = " + isNaN(2 / 0) + " *** <br>");   // false
-            document.write("isNaN(0 / 0) = " + isNaN(0 / 0) + " *** <br>");   // true
-            document.write("isNaN(0) = " + isNaN(0) + "<br>");           // false
-            document.write("isNaN('Hello') = " + isNaN("Hello") + "<br>");   // true
-            document.write('isNaN("2005/12/12") = ' + isNaN("2005/12/12") + "<br>"); // true
-            document.write("isNaN(',') = " + isNaN(',') + "<br>");            // false
-        </script>
+        <legend>Test JS string</legend>
         <form>
             <input type="text" id="int1" value="1"/>
             <input type="text" id="int2" value="5"/>
@@ -121,6 +75,19 @@
             document.write(" = " + v1.value + v2.value);
         </script>
     </fieldset>
+    
+    <fieldset>
+        <legend>Converting a String to a boolean</legend>
+        <script>
+            var v3 = Boolean("false");
+            var v4 = "false";
+            var stringVal = "false";
+            var v5 = (stringVal === 'true');
+            document.write(" Boolean(\"false\") = " + v3 + "<br>");
+            document.write(" \"false\" = " + v4 + "<br>");
+            document.write(" (stringVal === \'true\') = " + v5 + "<br>");
+        </script>
+    </fieldset>
 
     <fieldset>
         <legend>Test text...</legend>
@@ -128,42 +95,6 @@
         <bdo dir="rtl">This will render from right-to-left</bdo><br />
         <bdo dir="ltr">This will render from left-to-right</bdo><br />
     </fieldset>
-
-    <fieldset>
-        <legend>Test Geolocation</legend>
-        <button onclick="getLocation()">Get your location</button>
-        <p id="geoloc-demo"></p>
-        <script>
-        var x = document.getElementById("geoloc-demo");
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, showError);
-            }
-            else { x.innerHTML = "Geolocation is not supported by this browser."; }
-        }
-        function showPosition(position) {
-            x.innerHTML = "Latitude: " + position.coords.latitude +
-                          "<br>Longitude: " + position.coords.longitude;
-        }
-        function showError(error) {
-            switch (error.code) {
-                case error.PERMISSION_DENIED:
-                    x.innerHTML = "User denied the request for Geolocation."
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    x.innerHTML = "Location information is unavailable."
-                    break;
-                case error.TIMEOUT:
-                    x.innerHTML = "The request to get user location timed out."
-                    break;
-                case error.UNKNOWN_ERROR:
-                    x.innerHTML = "An unknown error occurred."
-                    break;
-            }
-        }
-        </script>
-    </fieldset>
-
 
     <p>See <a href="https://github.com/virtualda">My Repositories on github</a></p>
 </body>
