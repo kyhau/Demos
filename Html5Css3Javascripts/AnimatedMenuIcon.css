@@ -1,0 +1,52 @@
+body {
+  background-color: #e74c3c;
+  color: #fff;
+  font: 1em/1.618 "Open Sans", Sans-serif;
+}
+.icon-nav {
+  border-radius: 3px;
+  width: 40px;
+  margin: 1em auto;
+  padding: .25em;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+}
+.icon-nav:after, 
+.icon-nav:before, 
+.icon-nav div  {
+  display: block;
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  content: '';
+  margin: 7px 0;
+  height: 5px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  background-color: #fff;
+}
+.icon-nav:hover:before {
+  transform: translateY(12px) rotate(135deg);
+  -webkit-transform: translateY(12px) rotate(135deg);
+  -moz-transform: translateY(12px) rotate(135deg);
+}
+.icon-nav:hover:after {
+  transform: translateY(-12px) rotate(-135deg);
+  -moz-transform: translateY(-12px) rotate(-135deg);
+  -webkit-transform: translateY(-12px) rotate(-135deg);
+}
+.icon-nav:hover div {
+  transform: scale(0);
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+}
+
+@media only screen and (min-width: 64em) {
+  .demo-wrap {
+  width: 800px;
+}
